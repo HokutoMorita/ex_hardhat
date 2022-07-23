@@ -1,7 +1,6 @@
 import { expect } from "chai";
-import hre, { ethers } from "hardhat";
+import { ethers } from "hardhat";
 import { time, loadFixture } from "@nomicfoundation/hardhat-network-helpers";
-import { Contract } from "ethers";
 
 describe("Lock", () => {
     const deployOneYearLockFixture = async () => {
