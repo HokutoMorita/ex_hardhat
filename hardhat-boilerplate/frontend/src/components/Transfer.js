@@ -19,7 +19,7 @@ export const Transfer = ({ transferTokens, tokenSymbol }) => {
                 }}
             >
                 <div className="form-group">
-                    <label>Amount of {tokensSymbol}</label>
+                    <label>Amount of {tokenSymbol}</label>
                     <input
                         className="form-control"
                         type="number"
