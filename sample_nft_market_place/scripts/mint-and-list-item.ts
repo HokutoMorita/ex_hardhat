@@ -20,7 +20,7 @@ async function mintAndList() {
     const nftMarketplaceContract = await ethers.getContract("NftMarketplace");
     const basicNftContract = await ethers.getContract("BasicNft");
 
-    console.log("Minting NFT for ${owner.address}");
+    console.log(`Minting NFT for ${owner.address}`);
     const mintTx = await basicNftContract.connect(owner).mintNft();
     const mintTxReceipt = await mintTx.wait(1);
     const tokenId = mintTxReceipt.events[0].args.tokenId;
@@ -40,9 +40,7 @@ async function mintAndList() {
 
     const mintedBy = await basicNftContract.ownerOf(tokenId);
     // mintedByの値がマーケットプレイスのスマートコントラクトから読み込まれ、そのアドレスがオーナーと同じであることを確認できます
-    console.log("NFT with ID %s minted and listed by owner %s with identity %s.",
-        tokenId, mintedBy, IDENTITIES[mintedBy]
-    );
+    console.log(`NFT with ID ${tokenId} minted and listed by owner ${mintedBy} with identity ${IDENTITIES[mintedBy]}.`);
 }
 
 // exit(0)は正常終了
