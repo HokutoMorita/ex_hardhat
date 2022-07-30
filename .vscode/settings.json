@@ -1,0 +1,36 @@
+{
+    //*.js
+    "[javascript]": {
+      "editor.formatOnSave": true
+    },
+    //*.jsx
+    "[javascriptreact]": {
+      "editor.formatOnSave": true
+    },
+    //*.ts
+    "[typescript]": {
+      "editor.formatOnSave": true
+    },
+    //*.tsx
+    "[typescriptreact]": {
+      "editor.formatOnSave": true
+    },
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    // editor
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+    // ESLint
+    "eslint.workingDirectories": ["./sample_nft_market_place"],
+    // HTML
+    "html.format.enable": false,
+    // JavaScript
+    "javascript.format.enable": false,
+    // JSON
+    "json.format.enable": false,
+    // Prettier
+    "prettier.ignorePath": "sample_nft_market_place/.prettierignore",
+    // TypeScript
+    "typescript.format.enable": false
+  }
