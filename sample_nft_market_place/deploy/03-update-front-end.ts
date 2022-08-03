@@ -13,12 +13,17 @@ import {HardhatRuntimeEnvironment} from "hardhat/types"
 const updateFrontEnd: DeployFunction = async function (
     hre: HardhatRuntimeEnvironment
   ) {
-    if (process.env.UPDATE_FRONT_END) {
-        console.log("Writing to front end...")
-        await updateContractAddresses()
-        await updateAbi()
-        console.log("Front end written!")
-    }
+    // ココカラファイン！！！、この条件に入れてない、、、
+    // if (process.env.UPDATE_FRONT_END) {
+    //     console.log("Writing to front end...")
+    //     await updateContractAddresses()
+    //     await updateAbi()
+    //     console.log("Front end written!")
+    // }
+    console.log("Writing to front end...")
+    await updateContractAddresses()
+    await updateAbi()
+    console.log("Front end written!")
 }
 
 async function updateAbi() {

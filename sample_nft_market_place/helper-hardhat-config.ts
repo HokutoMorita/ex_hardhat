@@ -39,7 +39,7 @@ export const networkConfig:networkConfigInfo = {
 
 export const developmentChains = ["hardhat", "localhost"]
 export const VERIFICATION_BLOCK_CONFIRMATIONS = 6
-export const frontEndContractsFile = "../front-end/constants/networkMapping.json"
+export const frontEndContractsFile = "front-end/constants/networkMapping.json"
 // export const frontEndContractsFile2 = "../nextjs-nft-marketplace-thegraph-fcc/constants/networkMapping.json"
-export const frontEndAbiLocation = "../front-end/constants/"
+export const frontEndAbiLocation = "front-end/constants/"
 // export const frontEndAbiLocation2 = "../nextjs-nft-marketplace-thegraph-fcc/constants/"
