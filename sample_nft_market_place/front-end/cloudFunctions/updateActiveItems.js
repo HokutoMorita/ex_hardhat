@@ -85,11 +85,11 @@ Moralis.Cloud.afterSave("ItemBought", async (request) => {
         query.equalTo("nftAddress", request.object.get("nftAddress"))
         query.equalTo("tokenId", request.object.get("tokenId"))
         logger.info(`Marketplace | Query: ${query}`)
-        const canceledItem = await query.first()
-        logger.info(`Marketplace | CanceledItem: ${canceledItem}`)
-        if (canceledItem) {
-            logger.info(`Deleting ${request.object.get("objectId")}`)
-            await canceledItem.destroy()
+        const boughtItem = await query.first()
+        logger.info(`Marketplace | boughtItem: ${JSON.stringify(boughtItem)}`)
+        if (boughtItem) {
+            logger.info(`Deleting boughtItem ${boughtItem.id}`)
+            await boughtItem.destroy()
             logger.info(
                 `Deleted item with tokenId ${request.object.get(
                     "tokenId"
