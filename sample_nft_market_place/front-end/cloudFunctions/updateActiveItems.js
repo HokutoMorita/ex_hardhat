@@ -4,7 +4,7 @@ Moralis.Cloud.afterSave("ItemListed", async (request) => {
     logger.info("Looking for confirmed TX...")
     if (confirmed) {
         logger.info("Found item!")
-        const ActiveItem = Moralis.Object.extend("ActiveItem")
+        const ActiveItem = Moralis.Object.extend("ActiveItem") // Moralis DBのActiveItemテーブルに情報を格納する
 
         // In case of listing update, search for already listed ActiveItem and delete
         const query = new Moralis.Query(ActiveItem)
