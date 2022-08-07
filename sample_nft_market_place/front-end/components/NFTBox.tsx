@@ -44,6 +44,7 @@ const NFTBox: NextPage<NFTBoxProps> = ({
 
     const dispatch = useNotification()
 
+    console.log(`NFTBoxコンポーネントのtokenIdの確認: ${tokenId}`)
     const { runContractFunction: getTokenURI } = useWeb3Contract({
         abi: nftAbi,
         contractAddress: nftAddress,

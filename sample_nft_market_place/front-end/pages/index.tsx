@@ -31,6 +31,7 @@ const Home: NextPage = () => {
                             console.log(nft.attributes)
                             const { price, nftAddress, tokenId, marketplaceAddress, seller } =
                                 nft.attributes
+                            console.log(`tokenIdの確認: ${tokenId}`)
 
                             return (
                                 <NFTBox

@@ -2,6 +2,7 @@ Moralis.Cloud.afterSave("ItemListed", async (request) => {
     const confirmed = request.object.get("confirmed")
     const logger = Moralis.Cloud.getLogger()
     logger.info("Looking for confirmed TX...")
+    console.log(`confirmedの中身確認: ${confirmed}`)
     if (confirmed) {
         logger.info("Found item!")
         const ActiveItem = Moralis.Object.extend("ActiveItem") // Moralis DBのActiveItemテーブルに情報を格納する
@@ -45,6 +46,7 @@ Moralis.Cloud.afterSave("ItemListed", async (request) => {
 
 Moralis.Cloud.afterSave("ItemCanceled", async (request) => {
     const confirmed = request.object.get("confirmed")
+    console.log(`confirmedの中身確認: ${confirmed}`)
     logger.info(`Marketplace | Object: ${request.object}`)
     if (confirmed) {
         const logger = Moralis.Cloud.getLogger()
@@ -76,6 +78,7 @@ Moralis.Cloud.afterSave("ItemCanceled", async (request) => {
 
 Moralis.Cloud.afterSave("ItemBought", async (request) => {
     const confirmed = request.object.get("confirmed")
+    console.log(`confirmedの中身確認: ${confirmed}`)
     logger.info(`Marketplace | Object: ${request.object}`)
     if (confirmed) {
         const logger = Moralis.Cloud.getLogger()

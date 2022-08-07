@@ -36,6 +36,7 @@ export const UpdateListingModal = ({
             title: "Listing Updated - please refresh",
             position: "topR",
         })
+        console.log(`isVisibleの値確認${isVisible}`)
         onClose && onClose()
         setPriceToUpdateListingWith("0")
     }

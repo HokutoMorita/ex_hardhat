@@ -99,7 +99,9 @@ const SellNft: NextPage = () => {
         console.log("Approving...")
         const nftAddress = data.data[0].inputResult
         const tokenId = data.data[1].inputResult
-        const price = ethers.utils.parseUnits(data.data[2].inputResult, "ether").toString()
+        const decimals = 18;
+        // const price = ethers.utils.parseUnits(data.data[2].inputResult, "ether").toString()
+        const price = ethers.utils.parseUnits(data.data[2].inputResult, decimals).toString()
 
         const options = {
             abi: nftAbi,
