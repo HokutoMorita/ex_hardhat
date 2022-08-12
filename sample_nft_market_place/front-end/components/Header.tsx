@@ -18,6 +18,10 @@ export default function Header() {
                     {/* This is going to include cancel listings, update listings, and withdraw proceeds */}
                     <a className="mr-4 p-6">Sell NFTs</a>
                 </Link>
+                <Link href="/mint-nft">
+                    {/* This is going to include cancel listings, update listings, and withdraw proceeds */}
+                    <a className="mr-4 p-6">Mint NFTs</a>
+                </Link>
                 <ConnectButton moralisAuth={false} />
             </div>
         </nav>
