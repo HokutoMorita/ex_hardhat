@@ -69,7 +69,7 @@ contract  NftMarketplace is ReentrancyGuard {
         IERC721 nft = IERC721(nftAddress);
         address owner = nft.ownerOf(tokenId);
         if (spender != owner) {
-            revert(); NotOwner();
+            revert NotOwner();
         }
         _;
     }
