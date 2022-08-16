@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { injected } from './connectors';
 import { Provider } from './provider';
 
+// 既に接続している場合の接続処理
 export function useEagerConnect(): boolean {
   const { activate, active } = useWeb3React<Provider>();
 
@@ -10,6 +11,7 @@ export function useEagerConnect(): boolean {
 
   // use useCallback() and useEffect() hooks together so that tryActivate() will only
   // be called once when attempting eager connection
+  // useCallback() と useEffect() フックを一緒に使用して、接続を試みるときに tryActivate() が一度だけ呼び出されるようにします
   const tryActivate = useCallback((): void => {
     async function _tryActivate() {
       const isAuthorized = await injected.isAuthorized();
@@ -34,7 +36,7 @@ export function useEagerConnect(): boolean {
     tryActivate();
   }, [tryActivate]);
 
-  // if the connection worked, wait until we get confirmation of that to flip the flag
+  // 接続が機能した場合は、その確認が得られるまで待ってフラグを反転させます
   useEffect((): void => {
     if (!tried && active) {
       setTried(true);
@@ -44,6 +46,7 @@ export function useEagerConnect(): boolean {
   return tried;
 }
 
+// 既に接続している場合の接続処理
 export function useInactiveListener(suppress: boolean = false): void {
   const { active, error, activate } = useWeb3React<Provider>();
 
