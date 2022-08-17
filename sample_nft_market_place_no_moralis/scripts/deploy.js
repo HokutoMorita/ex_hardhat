@@ -35,7 +35,7 @@ const saveFrontendFiles = (myNft, nftMarketPlace) => {
   fs.writeFileSync(
     path.join(contractsDir, "contract-address.json"),
     JSON.stringify({
-       NyNFT: myNft.address,
+       MyNFT: myNft.address,
        NftMarketplace: nftMarketPlace.address
       }, 
       undefined, 
