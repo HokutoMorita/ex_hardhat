@@ -1,15 +1,12 @@
 import { useEffect, useState } from "react"
 
-type Props = {
-    onConnect: (walletAddress: string) => void
-}
-
-export const ConnectSection: React.FunctionComponent<Props> = ({ onConnect }) => {
+export const ConnectSection: React.FunctionComponent = () => {
+    const [isConnected, setIsConnected] = useState(false);
     const [address, setAddress] = useState('');
 
     const onAccountsChanged = (walletAddresses:any) => {
         setAddress(walletAddresses[0] || '');
-        onConnect && onConnect(walletAddresses[0]);
+        setIsConnected(walletAddresses[0]);
     }
 
     // 初回のみ実行するため第二引数は空配列
@@ -42,13 +39,20 @@ export const ConnectSection: React.FunctionComponent<Props> = ({ onConnect }) =>
     }
 
     return (
-        <section>
-            <h2>Connect</h2>
-            <button onClick={onClickConnect}>Connect</button>
-            <dl>
-                <dt>Wallet address</dt>
-                <dd>{address}</dd>
-            </dl>
-        </section>
+        <>
+            <section>
+                <h2>Connect</h2>
+                <button onClick={onClickConnect}>Connect</button>
+                <dl>
+                    <dt>Wallet address</dt>
+                    <dd>{address}</dd>
+                </dl>
+            </section>
+            <div>
+                {isConnected && (
+                    <p>接続完了</p>
+                )}
+            </div>
+        </>
     )
 }
