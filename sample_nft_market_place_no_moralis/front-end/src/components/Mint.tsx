@@ -1,11 +1,14 @@
 import React from 'react';
 import { ethers } from "ethers";
 
-import contractAddress from '../contracts/contract-address.json';
-import MyNFTArtifact from '../contracts/MyNFT.json';
-import NftMarketplaceArtifact from '../contracts/NftMarketplace.json';
+import { getMyNFTContract, getNftMarketplaceContract } from '../utils/contracts';
 
-export const Mint: React.FunctionComponent = () => {
+type Props = {
+    tokenIds: number[]
+    setTokenIds: (tokenIds: number[]) => void
+}
+
+export const Mint: React.FunctionComponent<Props> = ({ tokenIds, setTokenIds }) => {
 
     const onClickMint = async () => {
         console.log(`ネットワークIDの確認: ${(window as any).ethereum.networkVersion}`)
@@ -13,17 +16,8 @@ export const Mint: React.FunctionComponent = () => {
         const provider = new ethers.providers.Web3Provider((window as any).ethereum);
         const owner = provider.getSigner(0);
 
-        const myNft = new ethers.Contract(
-            contractAddress.MyNFT,
-            MyNFTArtifact.abi,
-            owner
-        )
-
-        const nftMarketplace = new ethers.Contract(
-            contractAddress.NftMarketplace,
-            NftMarketplaceArtifact.abi,
-            owner
-        )
+        const myNft = getMyNFTContract(owner);
+        const nftMarketplace = getNftMarketplaceContract(owner);
 
         
         try {
@@ -47,6 +41,8 @@ export const Mint: React.FunctionComponent = () => {
                 .connect(owner)
                 .listItem(myNft.address, tokenId, price);
             await tx.wait(1);
+
+            setTokenIds([...tokenIds, tokenId]);
         } catch (error) {
             console.log("Mint処理のエラーメッセージ");
             console.log(error);

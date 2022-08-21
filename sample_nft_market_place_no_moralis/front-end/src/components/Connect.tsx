@@ -4,7 +4,7 @@ export const ConnectSection: React.FunctionComponent = () => {
     const [isConnected, setIsConnected] = useState(false);
     const [address, setAddress] = useState('');
 
-    const onAccountsChanged = (walletAddresses:any) => {
+    const onAccountsChanged = (walletAddresses: any) => {
         setAddress(walletAddresses[0] || '');
         setIsConnected(walletAddresses[0]);
     }
