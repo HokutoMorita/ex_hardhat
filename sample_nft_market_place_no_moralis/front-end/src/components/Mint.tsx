@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { ethers } from "ethers";
 
 import contractAddress from '../contracts/contract-address.json';

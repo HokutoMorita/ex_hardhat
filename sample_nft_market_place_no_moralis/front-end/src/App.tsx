@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { ConnectSection } from './components/Connect';
 import { Mint } from './components/Mint';
 
-export const App: React.FC = () => {
+export const App: React.FunctionComponent = () => {
   return (
     <BrowserRouter>
       <h2>NFTマーケットプレイス</h2>
