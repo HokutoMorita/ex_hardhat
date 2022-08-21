@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, BrowserRouter, Routes, Route } from 'react-router-dom';
 
+import { ItemList } from './components/ItemList';
 import { ConnectSection } from './components/Connect';
 import { Mint } from './components/Mint';
 
@@ -8,6 +9,11 @@ export const App: React.FunctionComponent = () => {
   const [tokenIds, setTokenIds] = useState([]);
   const onSetTokenIds = (tokenIds: any) => {
     setTokenIds(tokenIds);
+  }
+
+  const [itemList, setItemList] = useState([]);
+  const onSetItemList = (itemList: any) => {
+    setItemList(itemList);
   }
 
   useEffect(() => {
@@ -31,7 +37,16 @@ export const App: React.FunctionComponent = () => {
       </ul>
       <hr />
       <Routes>
-        <Route path="/" element={<><p>ここにItemListを表示させる</p></>} />
+        <Route 
+          path="/" 
+          element={
+            <ItemList
+              tokenIds={tokenIds}
+              itemList={itemList}
+              setItemList={onSetItemList}
+            />
+          } 
+        />
         <Route path="/connect-wallet" element={<ConnectSection />} />
         <Route 
           path="/mint"
