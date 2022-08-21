@@ -175,4 +175,13 @@ describe("NFT Marletplace", () => {
         await expect(nftMarketplace.connect(owner).updateListing(myNft.address, tokenId, newPrice))
             .to.be.revertedWithCustomError(nftMarketplace, "NotListed");
     });
+
+    it("getSListingsでItemListを取得できること", async () => {
+        const { nftMarketplace, myNft, tokenId } = await loadFixture(mintAndList);
+        const expectedPrice = ethers.utils.parseEther("0.1");
+        const sListings = await nftMarketplace.getSListings(myNft.address);
+        const actualPrice = resultListing.price;
+        // console.log(`actualPriceの値: ${actualPrice}`)
+        expect(actualPrice).to.equal(expectedPrice);
+    });
 });

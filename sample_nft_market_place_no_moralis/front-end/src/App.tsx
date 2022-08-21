@@ -1,14 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, BrowserRouter, Routes, Route } from 'react-router-dom';
-import { ethers } from "ethers";
 
 import { ConnectSection } from './components/Connect';
-import { ItemList } from './components/ItemList';
-
-import contractAddress from './contracts/contract-address.json'
-import MyNFTArtifact from './contracts/MyNFT.json'
-import NftMarketplaceArtifact from './contracts/NftMarketplace.json'
-
+import { Mint } from './components/Mint';
 
 export const App: React.FC = () => {
   return (
@@ -19,13 +13,18 @@ export const App: React.FC = () => {
           <Link to='/'>ItemList </Link>
         </li>
         <li>
+          <Link to='/connect-wallet'>ConnectWallet </Link>
+        </li>
+        <li>
           <Link to='/mint'>Mint </Link>
         </li>
+
       </ul>
       <hr />
       <Routes>
-        <Route path="/" element={<ItemList />} />
-        <Route path="/mint" element={<ConnectSection />} />
+        <Route path="/" element={<><p>ここにItemListを表示させる</p></>} />
+        <Route path="/connect-wallet" element={<ConnectSection />} />
+        <Route path="/mint" element={<Mint />} />
       </Routes>
     </BrowserRouter>
   );

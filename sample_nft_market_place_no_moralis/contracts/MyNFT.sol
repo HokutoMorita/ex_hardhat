@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity  ^0.8.9;
+import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
@@ -15,8 +16,10 @@ contract MyNFT is ERC721 {
 
     function mintNft() public {
         uint256 newItemId = _tokenIds.current();
+        console.log("newItemId: %s", newItemId);
         _safeMint(msg.sender, newItemId);
         emit NftMinted(newItemId);
+        console.log("NftMinted Event emited");
         _tokenIds.increment();
     }
 
